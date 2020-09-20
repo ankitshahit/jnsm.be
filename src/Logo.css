@@ -13,17 +13,11 @@
   text-transform: capitalize;
 }
 
-.logo-main:hover,
-h2:hover,
-h3:hover {
-  color: rgba(0, 0, 0, 0.87);
-}
 .logo-secondary:hover {
   color: rgb(24, 34, 158);
 }
 .logo-item {
-  border-bottom: 2px solid rgb(24, 34, 158);
-  border-top: 2px solid rgb(24, 34, 158);
+  border: 2px solid rgb(24, 34, 158);
 }
 
 .logo:hover {
