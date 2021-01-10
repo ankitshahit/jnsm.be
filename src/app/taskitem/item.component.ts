@@ -15,28 +15,14 @@ export class ItemComponent implements OnInit {
 		title: "",
 		id: undefined,
 		type: "",
+		child: [],
 	};
 
+	childCounter = [];
 	constructor() {}
 
 	ngOnInit(): void {}
 
-	onMouseExit() {
-		console.log(`Inside mouseexit ${JSON.stringify(this.metadata)}`);
-		if (
-			(this.metadata.isNotEditable && !this.metadata.isFirstTime) ||
-			this.metadata.isNotEditable ||
-			!this.titleIsNotEmpty()
-		) {
-			console.log(`returning back as one of the conditions matched!`);
-			return;
-		}
-		this.metadata.isFirstTime = false;
-		this.metadata.isNotEditable = true;
-		this.metadata.id =
-			this.metadata.id ||
-			Math.ceil(Math.floor(Math.random() + 1.4) * 1.4 + Math.random());
-	}
 	onMouseClick() {
 		console.log(`Inside mouseclicked!`);
 		if (this.metadata.isFirstTime || !this.metadata.isNotEditable) {
@@ -52,10 +38,28 @@ export class ItemComponent implements OnInit {
 			this.metadata.title === null
 		);
 	}
-
+	storeMetadata(type: string, event) {
+		if (type === "main-title") {
+			this.metadata = event;
+			this.metadata.child = [];
+		}
+	}
 	cardStyles() {
 		return {
 			borderColor: this.metadata.type === "issues" ? "green" : "yellow",
 		};
+	}
+
+	createNewItem() {
+		console.log(
+			`inside counter: ${
+				this.childCounter.length === this.metadata.child.length
+			}`
+		);
+		if (this.childCounter.length === this.metadata.child.length) {
+			this.childCounter.push(this.childCounter.length + 1);
+		} else {
+			return;
+		}
 	}
 }

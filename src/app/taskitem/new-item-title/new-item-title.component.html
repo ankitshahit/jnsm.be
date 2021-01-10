@@ -1,0 +1,13 @@
+<!-- @format -->
+
+<div *ngIf="this.metadata.isFirstTime">
+	<input
+		type="text"
+		[placeholder]="metadata.placeholder"
+		class="form-control"
+		[disabled]="metadata.isNotEditable"
+		[(ngModel)]="metadata.title"
+		(keydown.enter)="onNewTitleSubmit()"
+		*ngIf="this.metadata.isFirstTime || !this.metadata.isNotEditable"
+	/>
+</div>
