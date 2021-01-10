@@ -1,0 +1,7 @@
+/** @format */
+
+.form-control:disabled,
+.form-control[readonly] {
+	background-color: white !important;
+	border: 0px;
+}

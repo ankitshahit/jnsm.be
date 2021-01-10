@@ -1,0 +1,44 @@
+<!-- @format -->
+<div class="row">
+	<div class="card" [ngStyle]="this.cardStyles()">
+		<div class="card-title">
+			<div *ngIf="this.metadata.isFirstTime">
+				<input
+					type="text"
+					[placeholder]="metadata.placeholder"
+					class="form-control"
+					[disabled]="metadata.isNotEditable"
+					[(ngModel)]="metadata.title"
+					(keydown.enter)="onMouseExit()"
+					*ngIf="this.metadata.isFirstTime || !this.metadata.isNotEditable"
+				/>
+			</div>
+			<div
+				*ngIf="
+					!this.metadata.isFirstTime &&
+					this.titleIsNotEmpty() &&
+					this.metadata.isNotEditable
+				"
+			>
+				<div class="col">
+					<span class="fa fa-tasks"></span> {{ this.metadata.id }}</div
+				>
+				<div class="col"
+					><a href="#"> {{ this.metadata.title }}</a></div
+				>
+			</div>
+		</div>
+		<div class="card-body" *ngIf="!metadata.isFirstTime">
+			<div class="row"
+				><div class="col"><app-repeat></app-repeat></div
+			></div>
+			<div class="row">
+				<div class="col"
+					><button class="btn"
+						><span class="fa fa-tasks"></span> 0/2</button
+					></div
+				>
+			</div>
+		</div>
+	</div>
+</div>

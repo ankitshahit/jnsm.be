@@ -1,0 +1,21 @@
+<!-- @format -->
+
+<input
+	type="text"
+	id="dropdown-text"
+	data-toggle="dropdown"
+	class="dropdown-toggle"
+	style="text-align: center"
+	[(ngModel)]="this.searchText"
+	(keyup)="this.searchDropdownText($event.target.value)"
+	autocomplete="off"
+/>
+
+<ul class="dropdown-menu">
+	<li
+		class="dropdown-item"
+		*ngFor="let item of filteredItems"
+		(click)="onClick(item)"
+		>{{ item.text }}</li
+	>
+</ul>
