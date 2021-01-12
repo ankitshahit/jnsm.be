@@ -1,46 +1,96 @@
 <!-- @format -->
 
-<div class="row">
-	<div class="card" [ngStyle]="this.cardStyles()">
-		<div class="card-title">
-			<new-item-title
-				(metadataEvent)="this.storeMetadata('main-title', $event)"
-			></new-item-title>
-			<div
-				*ngIf="
-					!this.metadata.isFirstTime &&
-					this.titleIsNotEmpty() &&
-					this.metadata.isNotEditable
-				"
-			>
-				<div class="col">
-					<span class="fa fa-tasks"></span> {{ this.metadata.id }}</div
-				>
-				<div class="col"
-					><a href="#"> {{ this.metadata.title }}</a></div
-				>
-			</div>
-		</div>
-		<div class="card-body" *ngIf="!metadata.isFirstTime">
-			<div class="row"
-				><div class="col"> <app-repeat></app-repeat> </div
-			></div>
+<div class="card" [ngStyle]="this.cardStyles()">
+	<div class="card-title">
+		<new-item-title
+			(metadataEvent)="this.storeMetadata('main-title', $event)"
+		></new-item-title>
+		<div
+			*ngIf="
+				!this.metadata.isFirstTime &&
+				this.titleIsNotEmpty() &&
+				this.metadata.isNotEditable
+			"
+		>
 			<div class="row">
 				<div class="col">
-					<button class="btn" (click)="this.createNewItem()">
-						<span class="fa fa-tasks"></span> 0/{{
-							this.childCounter.length
-						}}</button
-					>
+					<span class="fa fa-tasks"></span> {{ this.metadata.id }}
 				</div>
-				<div class="col"> Tasks </div>
-			</div>
-			<div class="row" *ngFor="let item of this.childCounter">
 				<div class="col">
-					<new-item-title
-						(metadataEvent)="this.storeMetadata('child-title', $event)"
-					></new-item-title>
+					<a href="#"> {{ this.metadata.title }}</a>
 				</div>
+			</div>
+		</div>
+	</div>
+	<div class="card-body" *ngIf="!metadata.isFirstTime">
+		<div class="row">
+			<div class="col">State</div>
+			<div class="col">
+				<dropdown2 [items]="this.allItemState" id="repeat-text"> </dropdown2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col"><app-repeat></app-repeat></div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<button class="btn" (click)="this.createNewItem()">
+					<span class="fa fa-tasks"></span> 0/{{ this.childCounter.length }}
+				</button>
+			</div>
+			<div class="col">Tasks</div>
+		</div>
+		<div class="row" *ngFor="let item of this.childCounter">
+			<div class="col">
+				<new-item-title
+					(metadataEvent)="this.storeMetadata('child-title', $event)"
+				></new-item-title>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col"></div>
+			<div class="col">
+				<ul class="list-unstyled">
+					<li *ngFor="let item of this.metadata.child; let index = index">
+						<input
+							type="checkbox"
+							[name]="index"
+							[id]="index"
+							class="form-check-label"
+							[(ngModel)]="this.metadata.child[index].markAsComplete"
+							(click)="
+								this.metadata.child[index].markAsComplete = !this.metadata
+									.child[index].markAsComplete
+							"
+						/>
+
+						<span
+							*ngIf="
+								!this.metadata.child[index].markAsComplete;
+								then todoItem;
+								else completedItem
+							"
+						>
+						</span>
+
+						<ng-template #todoItem>
+							<span class="text-truncate text-wrap">{{ item.title }}</span>
+						</ng-template>
+						<ng-template #completedItem>
+							<del class="text-truncate text-wrap">{{ item.title }}</del>
+						</ng-template>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<button class="btn btn-cancel" (click)="this.cancelItem()">
+					Cancel
+				</button>
+			</div>
+			<div class="col">
+				<button class="btn btn-save" (click)="this.saveItem()">Save</button>
 			</div>
 		</div>
 	</div>

@@ -17,6 +17,7 @@ export class NewItemTitleComponent {
 		title: "",
 		id: undefined,
 		parent_id: undefined,
+		markAsComplete: false,
 	};
 
 	onNewTitleSubmit() {

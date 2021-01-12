@@ -12,3 +12,11 @@
 	border: none;
 	box-shadow: none;
 }
+
+.btn-save {
+	border: 1px solid #000000;
+}
+
+.btn-cancel {
+	border: 1px solid red;
+}

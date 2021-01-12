@@ -1,6 +1,7 @@
 /** @format */
 
 import { Component, OnInit } from "@angular/core";
+import { DropdownItem } from "../dropdown2/dropdownItem.model";
 
 @Component({
 	selector: "app-item",
@@ -8,6 +9,11 @@ import { Component, OnInit } from "@angular/core";
 	styleUrls: ["./item.component.css"],
 })
 export class ItemComponent implements OnInit {
+	readonly allItemState = [
+		new DropdownItem({ id: 1, text: "To do" }),
+		new DropdownItem({ id: 2, text: "Active" }),
+		new DropdownItem({ id: 3, text: "Closed" }),
+	];
 	metadata = {
 		isFirstTime: true,
 		placeholder: "",
@@ -17,7 +23,6 @@ export class ItemComponent implements OnInit {
 		type: "",
 		child: [],
 	};
-
 	childCounter = [];
 	constructor() {}
 
@@ -42,6 +47,8 @@ export class ItemComponent implements OnInit {
 		if (type === "main-title") {
 			this.metadata = event;
 			this.metadata.child = [];
+		} else if (type === "child-title") {
+			this.metadata.child.push(event);
 		}
 	}
 	cardStyles() {
@@ -61,5 +68,13 @@ export class ItemComponent implements OnInit {
 		} else {
 			return;
 		}
+	}
+
+	saveItem() {
+		console.log(`Saving the item!`);
+	}
+
+	cancelItem() {
+		console.log(`Resetting the changes`);
 	}
 }
