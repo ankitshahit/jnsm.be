@@ -1,7 +1,8 @@
 /** @format */
 
-import { Component, OnInit } from "@angular/core";
-import { DropdownItem } from "../dropdown2/dropdownItem.model";
+import {Component, OnInit} from "@angular/core";
+import {DropdownItem} from "../dropdown2/dropdownItem.model";
+import {ItemService} from "./item.service";
 
 @Component({
 	selector: "app-item",
@@ -10,10 +11,12 @@ import { DropdownItem } from "../dropdown2/dropdownItem.model";
 })
 export class ItemComponent implements OnInit {
 	readonly allItemState = [
-		new DropdownItem({ id: 1, text: "To do" }),
-		new DropdownItem({ id: 2, text: "Active" }),
-		new DropdownItem({ id: 3, text: "Closed" }),
+		new DropdownItem({id: 1, text: "To do"}),
+		new DropdownItem({id: 2, text: "Active"}),
+		new DropdownItem({id: 3, text: "Closed"}),
 	];
+
+	constructor(public itemService: ItemService) {}
 	metadata = {
 		isFirstTime: true,
 		placeholder: "",
@@ -24,8 +27,6 @@ export class ItemComponent implements OnInit {
 		child: [],
 	};
 	childCounter = [];
-	constructor() {}
-
 	ngOnInit(): void {}
 
 	onMouseClick() {
@@ -72,6 +73,7 @@ export class ItemComponent implements OnInit {
 
 	saveItem() {
 		console.log(`Saving the item!`);
+		this.itemService.addItem(this.metadata);
 	}
 
 	cancelItem() {

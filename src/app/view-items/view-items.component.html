@@ -1,0 +1,33 @@
+<!-- @format -->
+
+<div class="row">
+	<div class="col col-lg-4">
+		Todo
+		<button class="btn" (click)="this.showAddItem = !this.showAddItem">
+			New Item
+		</button>
+
+		<app-item *ngIf="this.showAddItem"></app-item>
+		<ul class="list-unstyled">
+			<li *ngFor="let item of this.itemService.getAllItemsByState('To do')">
+				<div class="card">
+					<div class="card-title">{{ item.title }}</div>
+					<div class="card-body">
+						<ul class="list-unstyled">
+							<li *ngFor="let child of item.child">
+								<span *ngIf="child.markAsComplete">
+									<del>{{ child.title }}</del>
+								</span>
+								<span *ngIf="!child.markAsComplete">{{ child.title }}</span>
+							</li>
+						</ul>
+
+						{{ item.state.text }}
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="col col-lg-4">InProgress</div>
+	<div class="col col-lg-4">Completed</div>
+</div>

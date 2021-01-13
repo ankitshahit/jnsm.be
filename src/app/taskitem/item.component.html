@@ -26,7 +26,12 @@
 		<div class="row">
 			<div class="col">State</div>
 			<div class="col">
-				<dropdown2 [items]="this.allItemState" id="repeat-text"> </dropdown2>
+				<dropdown2
+					[items]="this.allItemState"
+					id="repeat-text"
+					(selectedItem)="this.metadata.state = $event"
+				>
+				</dropdown2>
 			</div>
 		</div>
 		<div class="row">
@@ -52,26 +57,27 @@
 			<div class="col">
 				<ul class="list-unstyled">
 					<li *ngFor="let item of this.metadata.child; let index = index">
-						<input
-							type="checkbox"
-							[name]="index"
-							[id]="index"
-							class="form-check-label"
-							[(ngModel)]="this.metadata.child[index].markAsComplete"
-							(click)="
-								this.metadata.child[index].markAsComplete = !this.metadata
-									.child[index].markAsComplete
-							"
-						/>
+						<label>
+							<input
+								type="checkbox"
+								[name]="index"
+								[id]="index"
+								class="form-check-label"
+								[(ngModel)]="this.metadata.child[index].markAsComplete"
+								(click)="
+									this.metadata.child[index].markAsComplete = !this.metadata
+										.child[index].markAsComplete
+								" />
 
-						<span
-							*ngIf="
-								!this.metadata.child[index].markAsComplete;
-								then todoItem;
-								else completedItem
-							"
-						>
-						</span>
+							<span
+								*ngIf="
+									!this.metadata.child[index].markAsComplete;
+									then todoItem;
+									else completedItem
+								"
+							>
+							</span
+						></label>
 
 						<ng-template #todoItem>
 							<span class="text-truncate text-wrap">{{ item.title }}</span>
