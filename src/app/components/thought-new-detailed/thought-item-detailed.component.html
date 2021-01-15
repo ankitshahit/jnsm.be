@@ -1,0 +1,47 @@
+<!-- @format -->
+
+<div class="">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title">New thought!</div>
+				<button
+					type="button"
+					class="close"
+					data-dismiss="modal"
+					aria-label="Close"
+				>
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		</div>
+		<div class="modal-content">
+			<select name="type" id="type" class="custom-select">
+				<option value="1">Positive</option>
+				<option value="2">Negative</option>
+				<option value="3">Neutral</option>
+			</select>
+			<input type="text" class="form-control" placeholder="reason" />
+			<input type="text" class="form-control" placeholder="category" />
+			<label
+				for="categoryTextBox"
+				data-toggle="popover"
+				placeholder="comments"
+				title="Popover title"
+				data-content="Popover body content is set in this attribute."
+			>
+				Category textbox
+			</label>
+			<button
+				data-toggle="popover"
+				placeholder="comments"
+				title="Popover title"
+				data-content="Popover body content is set in this attribute."
+			>
+				Item button
+			</button>
+			<input type="textarea" class="form-control" id="categoryTextBox" />
+			<button type="submit" class="btn btn-outline-primary">Save</button>
+		</div>
+	</div>
+</div>

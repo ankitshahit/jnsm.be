@@ -1,0 +1,60 @@
+<!-- @format -->
+<div class="row" style="color: #707070">
+	<div class="col"><label for="changeDate">Change Date</label></div>
+	<div class="col"><label for="todayDate">Today</label></div>
+	<div class="col"><label for="allTime">All Time</label></div>
+</div>
+<div class="row">
+	<div class="col">
+		<dashboard-line-tab
+			[item]="{caption: 'Date', value: 'Date'}"
+		></dashboard-line-tab>
+	</div>
+	<div class="col">
+		<dashboard-line-tab
+			[item]="{
+				caption: 'Positive',
+				value: '0',
+				value_bgcolor: 'green',
+				value_color: '#fff'
+			}"
+		></dashboard-line-tab>
+	</div>
+	<div class="col">
+		<dashboard-line-tab
+			[item]="{
+				caption: 'Positive',
+				value: '0',
+				value_bgcolor: 'green',
+				value_color: '#fff'
+			}"
+		></dashboard-line-tab>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+		<dashboard-line-tab
+			[item]="{caption: 'Date', value: 'Date'}"
+		></dashboard-line-tab>
+	</div>
+	<div class="col">
+		<dashboard-line-tab
+			[item]="{
+				caption: 'Negative',
+				value: '0',
+				value_bgcolor: 'red',
+				value_color: '#fff'
+			}"
+		></dashboard-line-tab>
+	</div>
+	<div class="col">
+		<dashboard-line-tab
+			[item]="{
+				caption: 'Negative',
+				value: '0',
+				value_bgcolor: 'red',
+				value_color: '#fff'
+			}"
+		></dashboard-line-tab>
+	</div>
+</div>

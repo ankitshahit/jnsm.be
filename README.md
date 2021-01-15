@@ -1,27 +1,57 @@
-# ThoughtsTrackerUi
+<!-- @format -->
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+# Whole purpose is to record how you're feeling!
 
-## Development server
+Product roadmap
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Features:
 
-## Code scaffolding
+COMPLETED:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# MAJOR:
 
-## Build
+[X] REPLACE BUTTONS POSITIVE AND NEGATIVE with icons
+[X] INTEGRATE mood feature with backend
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+PENDING:
 
-## Running unit tests
+# MAJOR
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+[ ] cleanup hard-coding of api server from codebase
+[ ] Integrate Fields from confirm-message component with API
+[ ] Add/Delete categories : ANGULAR, EXPRESS
+[ ] Add new categories right from create/log page : ANGULAR, EXPRESS
+[ ] Rename New+ to Detailed page or similar : ANGULAR
+[ ] Show option to log a summary or detailed right from navbar : ANGULAR
+[ ] Update Dashboard line items to their ICON : ANGULAR
+[ ] Add API to fetch data for dashboard line items : EXPRESS
+[ ] Add graph in dashboard for all type of data against each recorded datetime. : ANGULAR
+[ ] Filter data in dashboard : ANGULAR, EXPRESS
+[ ] Setup Dockerfile for each project : ANGULAR, EXPRESS
+[ ] Setup secrets for each project : K8, AWS, AZURE
+[ ] Setup configuration for each project : K8, AWS, AZURE
+[ ] Setup and move to local mongodb cluster : K8, AWS, AZURE
+[ ] Setup project on local k8 cluster
+[ ] Setup a terraform project to manage backend deployment : TERRAFORM, AWS, AZURE
+[ ] Move thoughts backend to azure functions or aws lambda : AWS, AZURE
 
-## Running end-to-end tests
+# MINOR
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+[ ] Rename folders page to pages
+[ ] Move confirm-action from components to pages?
+[ ] Write ngStyle or ngClass throught app to increase and decrease font-size of moods in app!
+[ ] Add a bootstrap tooltip for moods when hover'ed over
+[ ] Set a hover feature to increase current selected feeling/mood icon!
+[ ] Setup a .gitignore file for all projects
+[ ] Ensure .env is excluded or atleast cleanup the file!
+[ ] Setup integration of angular project with <code>npm i --save dotenv</code>
+[ ] Create ticket for each task/feature/bug/enhancement
+[ ] Update ticket or README.md for tasks completed!
 
-## Further help
+BUG
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# MINOR
+
+[ ] Ensure git is committing as LF rather than CRLF
+[ ] Success message on after submission of feeling/mood takes up entire screen!
+[ ] Success message on after submission of feeling/mood, text is not centered!

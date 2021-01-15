@@ -1,0 +1,41 @@
+<!-- @format -->
+
+<div class="navbar navbar-expand-lg navbar-light">
+	<div class="navbar-header">
+		<div class="navbar-brand" style="font-size: 35px; color: #707070">
+			Thoughts Log
+		</div>
+	</div>
+	<ul class="navbar-nav">
+		<li class="nav-item">
+			<a
+				href="#"
+				class="nav-link"
+				routerLinkActive="active"
+				routerLink="/"
+				[routerLinkActiveOptions]="{exact: true}"
+				>Home</a
+			>
+		</li>
+		<li class="nav-item">
+			<a
+				class="nav-link"
+				href="#"
+				routerLink="dashboard"
+				routerLinkActive="active"
+				>Dashboard <span class="sr-only">(current)</span></a
+			>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link" role="button" routerLink="new">New+</a>
+			<div class="dropdown dropdown-menu dropright">
+				<a href="#" class="dropdown-item">Positive Thought</a
+				><a href="#" class="dropdown-item">Negative Thought</a>
+			</div>
+		</li>
+		<li class="nav-item">
+			<a href="#" class="nav-link" routerLink="detailed">Detailed</a>
+		</li>
+	</ul>
+</div>

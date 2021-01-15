@@ -1,0 +1,6 @@
+/** @format */
+
+input[type="checkbox"] {
+	height: calc(1.5em + 0.75rem + 2px);
+	width: calc(1.5em + 0.75em + 2px);
+}
