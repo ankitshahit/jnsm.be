@@ -1,6 +1,6 @@
 <!-- @format -->
 
-# Whole purpose is to record and track how you're feeling!
+# Whole purpose is to record and progress your journey of emotions!
 
 Product roadmap
 
@@ -56,3 +56,4 @@ Product roadmap
 - [ ] Success message on after submission of feeling/mood takes up entire screen!
 - [ ] Success message on after submission of feeling/mood, text is not centered!
 - [x] README.MD tasks/bugs formatting is broken!
+- [x] Updated Tag line in README.md for project's motto
