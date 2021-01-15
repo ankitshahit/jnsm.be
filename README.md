@@ -1,21 +1,21 @@
 <!-- @format -->
 
-# Whole purpose is to record how you're feeling!
+# Whole purpose is to record and track how you're feeling!
 
 Product roadmap
 
-# Features:
+## Features:
 
-COMPLETED:
+### COMPLETED:
 
-# MAJOR:
+#### MAJOR:
 
 - [x] REPLACE BUTTONS POSITIVE AND NEGATIVE with icons
 - [x] INTEGRATE mood feature with backend
 
-PENDING:
+### PENDING:
 
-# MAJOR
+#### MAJOR
 
 - [ ] cleanup hard-coding of api server from codebase
 - [ ] Integrate Fields from confirm-message component with API
@@ -35,7 +35,7 @@ PENDING:
 - [ ] Setup a terraform project to manage backend deployment : TERRAFORM, AWS, AZURE
 - [ ] Move thoughts backend to azure functions or aws lambda : AWS, AZURE
 
-# MINOR
+#### MINOR
 
 - [ ] Rename folders page to pages
 - [ ] Move confirm-action from components to pages?
@@ -48,10 +48,11 @@ PENDING:
 - [ ] Create ticket for each task/feature/bug/enhancement
 - [ ] Update ticket or README.md for tasks completed!
 
-BUG
+### BUG
 
-# MINOR
+#### MINOR
 
 - [ ] Ensure git is committing as LF rather than CRLF
 - [ ] Success message on after submission of feeling/mood takes up entire screen!
 - [ ] Success message on after submission of feeling/mood, text is not centered!
+- [x] README.MD tasks/bugs formatting is broken!
