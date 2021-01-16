@@ -5,7 +5,7 @@ const util = require(`../../../util`);
 const thoughtSchema = mongoose.Schema({
 	type: {type: String, required: true},
 	datetime: {type: Date, required: true, default: Date.now},
-	comments: {type: String, required: false, default: "Quick Log"},
+	category: {type: String, required: false, default: "Quick Log"},
 	reason: {type: String, required: false, default: "Category"},
 	user: {type: String, required: true, default: "0"},
 });
