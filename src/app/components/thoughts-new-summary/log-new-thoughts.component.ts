@@ -58,11 +58,13 @@ export class LogNewThoughtsComponent {
 					this.reset();
 				})
 				.catch((error) => {
-					this.metadata.error = {
-						caption: "Error occurred, couldn't save the details",
-						text: error.msg || " while executing APi",
-						showMessage: true,
-					};
+					if (error) {
+						this.metadata.error = {
+							caption: "Error occurred, couldn't save the details",
+							text: error.msg || " while executing APi",
+							showMessage: true,
+						};
+					}
 				});
 		} catch (errorData) {
 			console.log(`error occurred: ${errorData}`);
@@ -75,7 +77,7 @@ export class LogNewThoughtsComponent {
 	}
 
 	hideErrorMessage() {
-		this.metadata.error.showMessage = !this.metadata.error.showMessage;
+		this.metadata.error.showMessage = false;
 	}
 
 	showLoadingMessage() {
