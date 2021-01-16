@@ -32,21 +32,38 @@ export class LogNewThoughtsComponent {
 		success: {
 			showMessage: false,
 		},
+		loading: false,
 	};
 
 	constructor(public thoughtsApiService: ThoughtsApiService) {}
 
-	onLogAThought(event) {
+	async onLogAThought(event) {
+		const {reason = "", category = this.metadata.type} = event.data;
 		console.log(
-			`quick-log: ${this.metadata.quickLog} ${JSON.stringify(event)}`
+			`quick-log: ${this.metadata.quickLog} ${JSON.stringify(
+				event
+			)} ${reason} ${category}`
 		);
 		try {
 			let item = {
 				datetime: new Date(),
 				type: this.metadata.type,
+				reason,
+				category,
 			};
-			this.thoughtsApiService.save(item);
-			this.reset();
+			this.showLoadingMessage();
+			this.thoughtsApiService
+				.save(item)
+				.then(() => {
+					this.reset();
+				})
+				.catch((error) => {
+					this.metadata.error = {
+						caption: "Error occurred, couldn't save the details",
+						text: error.msg || " while executing APi",
+						showMessage: true,
+					};
+				});
 		} catch (errorData) {
 			console.log(`error occurred: ${errorData}`);
 			this.metadata.error = {
@@ -61,6 +78,12 @@ export class LogNewThoughtsComponent {
 		this.metadata.error.showMessage = !this.metadata.error.showMessage;
 	}
 
+	showLoadingMessage() {
+		this.metadata.loading = true;
+	}
+	hideLoadingMessage() {
+		this.metadata.loading = false;
+	}
 	updateType(currentType: string) {
 		console.log(`currenttype: ${currentType}`);
 		this.metadata.type = currentType;
@@ -70,5 +93,7 @@ export class LogNewThoughtsComponent {
 	reset() {
 		this.metadata.success.showMessage = !this.metadata.success.showMessage;
 		this.updateType("");
+		this.hideLoadingMessage();
+		this.hideErrorMessage();
 	}
 }

@@ -1,6 +1,19 @@
 <!-- @format -->
 
 <div
+	*ngIf="this.metadata.loading; then loadingIcon; else storeThoughtsOrMood"
+></div>
+
+<ng-template #loadingIcon>
+	<div class="d-flex justify-content-center">
+		&nbsp;
+		<div class="spinner-border" role="status">
+			<span class="sr-only" id="loading"></span>
+		</div>
+	</div>
+</ng-template>
+
+<div
 	class="alert alert-success"
 	*ngIf="this.metadata.success.showMessage"
 	(click)="this.reset()"
@@ -12,70 +25,74 @@
 		</button>
 	</h5>
 </div>
-<div class="row">
-	<div class="col d-flex justify-content-end">
-		<label for="quick-log-check">
+
+<ng-template #storeThoughtsOrMood>
+	<div class="row">
+		<div class="col d-flex justify-content-end">
 			<input
 				type="checkbox"
 				name="quick-log-check"
 				id="quick-log-check"
 				[(ngModel)]="this.metadata.quickLog"
 			/>
-		</label>
-	</div>
-	<div class="col d-flex justify-content-start text-muted">
-		<label for="quick-log-check ">Quickly Log (No Additional Info)</label>
-	</div>
-	<div class="col">
-		<span style="color: #707070; font-size: 20px"></span>
-	</div>
-</div>
-<div>
-	<div class="row d-flex justify-content-center">
-		<div class="col"></div>
-		<div class="col"><h5 class="text-secondary">How you feeling?</h5></div>
-		<div class="col"></div>
-	</div>
-	<div class="row">
-		<div
-			class="col d-flex justify-content-center"
-			data-toggle="modal"
-			data-target="#confirmMessageModal"
-			style="cursor: pointer"
-		>
-			<span
-				class="fa fa-smile-o text-secondary"
-				(click)="this.updateType('positive')"
-				style="font-size: 75px; margin-right: 30px"
-			></span>
-			&nbsp;
-			<span
-				class="fa fa-meh-o text-secondary"
-				(click)="this.updateType('neutral')"
-				style="font-size: 75px; margin-right: 30px"
-			></span>
-			&nbsp;
-			<span
-				class="fa fa-frown-o text-secondary"
-				(click)="this.updateType('negative')"
-				style="font-size: 75px; margin-right: 30px"
-			></span>
+		</div>
+		<div class="col d-flex justify-content-start text-muted">
+			<label for="quick-log-check">Quickly Log (No Additional Info)</label>
+		</div>
+		<div class="col">
+			<span style="color: #707070; font-size: 20px"></span>
 		</div>
 	</div>
-</div>
-<div *ngIf="this.metadata.type">
-	<confirm-message
-		[metadata]="this.metadata"
-		(onConfirm)="this.onLogAThought($event)"
-		(onCancel)="this.updateType('')"
-	></confirm-message>
-</div>
+
+	<div>
+		<div class="row d-flex justify-content-center">
+			<div class="col"></div>
+			<div class="col"><h5 class="text-secondary">How you feeling?</h5></div>
+			<div class="col"></div>
+		</div>
+		<div class="row">
+			<div
+				class="col d-flex justify-content-center"
+				data-toggle="modal"
+				data-target="#confirmMessageModal"
+				style="cursor: pointer"
+			>
+				<span
+					class="fa fa-smile-o text-secondary mood-style"
+					(click)="this.updateType('positive')"
+					style="font-size: 75px; margin-right: 30px"
+					data-toggle="tooltip"
+					title="Hooray!"
+				></span>
+				&nbsp;
+				<span
+					class="fa fa-meh-o text-secondary"
+					(click)="this.updateType('neutral')"
+					style="font-size: 75px; margin-right: 30px"
+				></span>
+				&nbsp;
+				<span
+					class="fa fa-frown-o text-secondary"
+					(click)="this.updateType('negative')"
+					style="font-size: 75px; margin-right: 30px"
+				></span>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="this.metadata.type">
+		<confirm-message
+			[metadata]="this.metadata"
+			(onConfirm)="this.onLogAThought($event)"
+			(onCancel)="this.updateType('')"
+		></confirm-message>
+	</div>
+</ng-template>
 <div *ngIf="this.metadata.error.showMessage">
 	<!-- Modal -->
 	<div class="modal" style="display: flex" (click)="this.hideErrorMessage()">
 		<div class="modal-dialog">
 			<h5 class="modal-title alert alert-danger">
-				{{ this.error.caption }} {{ this.error.text }}
+				{{ this.metadata.error.caption }} {{ this.metadata.error.text }}
 				<button type="button" class="close">
 					<span aria-hidden="true">&times;</span>
 				</button>

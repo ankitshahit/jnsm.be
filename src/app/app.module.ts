@@ -13,7 +13,9 @@ import {HomeComponent} from "./page/home/home.component";
 import {ThoughtItemDetailedComponent as NewThoughtsDetailedComponent} from "./components/thought-new-detailed/thought-item-detailed.component";
 import {ConfirmQuickLogComponent} from "./components/confirm-action/confirm-action.component";
 import {CommonModule} from "@angular/common";
-import { CategoryComponent } from './page/category/category.component';
+import {CategoryComponent} from "./page/category/category.component";
+import {ThoughtsApiService} from "./components/thoughts-new-summary/thoughts-api.service";
+import { DashboardViewItemsComponent } from './page/dashboard-view-items/dashboard-view-items.component';
 
 const routes = [
 	{path: "", component: HomeComponent, pathMatch: "full"},
@@ -35,6 +37,7 @@ const routes = [
 		NewThoughtsDetailedComponent,
 		ConfirmQuickLogComponent,
 		CategoryComponent,
+		DashboardViewItemsComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -42,7 +45,7 @@ const routes = [
 		FormsModule,
 		RouterModule.forRoot(routes),
 	],
-	providers: [],
+	providers: [ThoughtsApiService],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -57,3 +57,4 @@ Product roadmap
 - [ ] Success message on after submission of feeling/mood, text is not centered!
 - [x] README.MD tasks/bugs formatting is broken!
 - [x] Updated Tag line in README.md for project's motto
+- Create todo tasks from readme.md for tasks created!

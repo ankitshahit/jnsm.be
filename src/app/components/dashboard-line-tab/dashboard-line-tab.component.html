@@ -1,7 +1,8 @@
 <!-- @format -->
 
 <div style="display: inline-block; border: 1px solid #000">
-	<span class="fa fa-smile-o">{{ item.caption }}</span> &nbsp;
+	<span [ngClass]="item.icon" style="font-size: 35px">{{ item.caption }}</span>
+	&nbsp;
 	<span
 		[ngStyle]="{
 			backgroundColor: item.value_bgcolor,

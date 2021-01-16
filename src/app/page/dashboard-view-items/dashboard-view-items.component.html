@@ -1,0 +1,37 @@
+<!-- @format -->
+
+<div
+	*ngIf="this.metadata.loading; then loadingIcon; else dashboardContent"
+></div>
+
+<ng-template #loadingIcon>
+	<div class="d-flex justify-content-center">
+		&nbsp;
+		<div class="spinner-border" role="status">
+			<span class="sr-only" id="loading"></span>
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #dashboardContent>
+	<div>
+		<table class="table table-bordered table-hover">
+			<tr>
+				<th>#</th>
+				<th>Date</th>
+				<th>Mood</th>
+				<th>Category</th>
+				<th>Reason</th>
+				<th>Actions</th>
+			</tr>
+			<tr *ngFor="let item of this.tableData; let index = index">
+				<td>{{ index + 1 }}</td>
+				<td>{{ item.datetime }}</td>
+				<td><span [class]="item.mood" style="font-size: 40px"></span></td>
+				<td>{{ item.category }}</td>
+				<td>{{ item.reason }}</td>
+				<td><a href="#">Delete</a></td>
+			</tr>
+		</table>
+	</div>
+</ng-template>

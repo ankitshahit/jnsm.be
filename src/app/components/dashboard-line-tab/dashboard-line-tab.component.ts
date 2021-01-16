@@ -1,6 +1,6 @@
 /** @format */
 
-import { Component, Input, OnInit } from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
 
 @Component({
 	selector: "dashboard-line-tab",
@@ -14,6 +14,7 @@ export class DashboardLineTabComponent implements OnInit {
 		caption_icon: "",
 		value_color: "black",
 		value_bgcolor: "#fff",
+		icon: "fa",
 	};
 	constructor() {}
 

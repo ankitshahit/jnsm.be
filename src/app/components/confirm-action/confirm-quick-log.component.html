@@ -10,7 +10,7 @@
 		<div class="col"></div>
 		<div class="col col-lg-3 d-flex justify-content-end form-group">
 			<label for="category" class="text-muted">Category: </label> &nbsp;
-			<select name="category" id="category" class="custom-select">
+			<select name="category" id="category" class="custom-select" #category>
 				<option value="1">1</option>
 			</select>
 		</div>
@@ -27,6 +27,7 @@
 				rows="5"
 				class="form-control"
 				style="padding: 2px; margin: 5px"
+				[(ngModel)]="this.reason"
 			></textarea>
 		</div>
 		<div class="col"></div>
