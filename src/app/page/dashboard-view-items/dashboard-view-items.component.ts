@@ -46,9 +46,9 @@ export class DashboardViewItemsComponent implements OnInit {
 
 			data.push({
 				datetime,
-				reason,
+				reason: !reason ? "--  --" : reason,
 				mood: this.changeMoodToIcon(mood),
-				category,
+				category: !category ? "--  --" : category,
 			});
 		});
 
